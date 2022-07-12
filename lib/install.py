@@ -1,5 +1,6 @@
 from distutils.command.config import config
 import os
+import sys
 import yaml
 import requests
 import tarfile
@@ -24,6 +25,7 @@ def __loadConfig__(kwargs):
     }
   else:
     print(f'erro: {config_file} doesn\'t exists!')
+    sys.exit(1)
   
 def __downloadFile__(install_source):
   res = requests.get(install_source)
@@ -35,6 +37,7 @@ def __downloadFile__(install_source):
   else:
     reason = res.reason
     print(f'erro: {reason}')
+    sys.exit(1)
 
 def __extractFiles__(install_destiny):
   try:
@@ -43,9 +46,11 @@ def __extractFiles__(install_destiny):
     tar_file.extractall(path=install_destiny)
   except Exception as err:
     print(f'erro: {str(err)}')
+    sys.exit(1)
 
 def __setSymbolicLink__(install_destiny):
   try:
     os.symlink(f'{install_destiny}/bin/unison', '/usr/bin/unison')
   except Exception as err:
     print(f'erro: {str(err)}')
+    sys.exit(1)
