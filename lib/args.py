@@ -2,14 +2,14 @@ import re
 import sys
 import argparse
 from lib.install import InstallUnison
-
+from lib.add_job import AddUnisonJob
 
 def arg_parser(**kwargs):
   parser = argparse.ArgumentParser(allow_abbrev=False)
   ''' create arguments '''
   parser.add_argument('--install',       help='Install Unison',                          action='store_true'  )
   parser.add_argument('--add-job',       help='Add a new Unison job',                    action='store_true'  )
-  parser.add_argument('--name',          help='Job name (used with --add-job)',          dest="job_name"      )
+  parser.add_argument('--job-name',          help='Job name (used with --add-job)',          dest="job_name"      )
   parser.add_argument('--remote-server', help='Remote server (used with --add-job)',     dest="remote_server" )
   parser.add_argument('--directory',     help='Directory to sync (used with --add-job)', dest='directory'     )
   parser.add_argument('--list',          help='List Unison jobs',                        action='store_true'  )
@@ -37,7 +37,7 @@ def arg_parser(**kwargs):
     if values_with_space:
       print('error: Values with spaces is not allowed!')
     ''' values was validated! '''
-    print('add job')
+    AddUnisonJob(fullpath=kwargs['fullpath'],args=args)
   else:
     if args['job_name'] != None or args['directory'] != None or args['remote_server'] != None:
       ''' check if arguments to be used with --add-job was passed ''' 
@@ -51,8 +51,7 @@ def arg_parser(**kwargs):
     else:
       ''' install Unison on server '''
       if args['install']:
-        fullpath = kwargs['fullpath']
-        InstallUnison(fullpath=fullpath)
+        InstallUnison(fullpath=kwargs['fullpath'])
     
   
   

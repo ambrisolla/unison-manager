@@ -1,4 +1,15 @@
 #!/usr/bin/env python
+
+'''
+  dependencies: 
+    - pyyaml
+    - paramiko
+    - requests
+    
+  pip3 install pyyaml paramiko requests
+'''
+
+
 import os
 from lib.args import arg_parser
 

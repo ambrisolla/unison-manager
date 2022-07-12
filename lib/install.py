@@ -4,14 +4,12 @@ import yaml
 import requests
 import tarfile
 
-
 def InstallUnison(**kwargs):
   confs = __loadConfig__(kwargs)
   __downloadFile__(install_source=confs['install_source'])
   __extractFiles__(install_destiny=confs['install_destiny'])
   __setSymbolicLink__(install_destiny=confs['install_destiny'])
   
-
 def __loadConfig__(kwargs):
   fullpath = kwargs['fullpath']
   config_file = f'{fullpath}/conf/install.yaml'

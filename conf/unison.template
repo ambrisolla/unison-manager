@@ -1,0 +1,13 @@
+root = __LOCAL_PATH__
+root = ssh://__REMOTE_SERVER__/__LOCAL_PATH__
+ignore = Name *.tmp
+auto=true
+batch=true
+confirmbigdel=true
+fastcheck=true
+group=true
+owner=true
+prefer=newer
+silent=false
+logfile=__LOG_FILE__
+times=true
