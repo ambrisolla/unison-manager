@@ -1,8 +1,10 @@
 import re
 import sys
 import argparse
+from lib.install import InstallUnison
 
-def arg_parser():
+
+def arg_parser(**kwargs):
   parser = argparse.ArgumentParser(allow_abbrev=False)
   ''' create arguments '''
   parser.add_argument('--install',       help='Install Unison',                          action='store_true'  )
@@ -49,7 +51,8 @@ def arg_parser():
     else:
       ''' install Unison on server '''
       if args['install']:
-        print('install unison')
+        fullpath = kwargs['fullpath']
+        InstallUnison(fullpath=fullpath)
     
   
   
