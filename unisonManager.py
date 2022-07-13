@@ -11,7 +11,7 @@
 
 
 import os
-from lib.args import arg_parser
+from lib.arguments import arg_parser
 
 ''' set abspath of directory app '''
 fullpath = os.path.dirname(os.path.realpath(__file__))

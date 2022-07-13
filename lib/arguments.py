@@ -1,10 +1,14 @@
 import re
 import sys
 import argparse
-from lib.install import InstallUnison
-from lib.add_job import AddUnisonJob
+from lib.install    import InstallUnison
+from lib.add_job    import AddUnisonJob
+from lib.exec       import Execute
+from lib.load_settings  import loadSettings
 
-def arg_parser(**kwargs):
+def arg_parser(fullpath):
+  # load global settings
+  global_settings = loadSettings(fullpath=fullpath)
   parser = argparse.ArgumentParser(allow_abbrev=False)
   ''' create arguments '''
   parser.add_argument('--install',       help='Install Unison',                          action='store_true'  )
@@ -37,7 +41,7 @@ def arg_parser(**kwargs):
     if values_with_space:
       print('error: Values with spaces is not allowed!')
     ''' values was validated! '''
-    AddUnisonJob(fullpath=kwargs['fullpath'],args=args)
+    AddUnisonJob(fullpath=fullpath,args=args)
   else:
     if args['job_name'] != None or args['directory'] != None or args['remote_server'] != None:
       ''' check if arguments to be used with --add-job was passed ''' 
@@ -51,7 +55,11 @@ def arg_parser(**kwargs):
     else:
       ''' install Unison on server '''
       if args['install']:
-        InstallUnison(fullpath=kwargs['fullpath'])
+        InstallUnison(fullpath=fullpath)
+      elif args['exec_job']:
+        Execute(
+          job_name=args['exec_job'],
+          fullpath=fullpath)
     
   
   

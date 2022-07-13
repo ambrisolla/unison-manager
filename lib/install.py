@@ -6,11 +6,12 @@ from lib.status_messages import StatusMessages
 from lib.load_settings import loadSettings
 
 def InstallUnison(**kwargs):
-  confs = loadSettings(kwargs)
-  __downloadFile__(install_source=confs['install_source'])
-  __checkIfUnisonIsInstalled__(install_destiny=confs['install_destiny'])
-  __extractFiles__(install_destiny=confs['install_destiny'])
-  __setSymbolicLink__(install_destiny=confs['install_destiny'])
+  ''' load global settings '''
+  settings = loadSettings(fullpath=kwargs['fullpath'])
+  __downloadFile__(install_source=settings['install_source'])
+  __checkIfUnisonIsInstalled__(install_destiny=settings['install_destiny'])
+  __extractFiles__(install_destiny=settings['install_destiny'])
+  __setSymbolicLink__(install_destiny=settings['install_destiny'])
     
 def __downloadFile__(install_source):
   message='downloading Unison'

@@ -8,6 +8,6 @@ fastcheck=true
 group=true
 owner=true
 prefer=newer
-silent=false
+silent=true
 logfile=__LOG_FILE__
 times=true

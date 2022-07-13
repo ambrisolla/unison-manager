@@ -7,7 +7,7 @@ from lib.load_settings import loadSettings
 
 def AddUnisonJob(**kwargs):
   # load settings
-  settings = loadSettings(kwargs)
+  settings = loadSettings(fullpath=kwargs['fullpath'])
   # call functions
   __checkConnectionWithRemoteServer__(
     remote_server=kwargs['args']['remote_server'])
@@ -118,7 +118,7 @@ def __createScheduleAtCron__(job_name,unison_contrab_path,unison_crontab_default
     else:
       cf = open(f'/etc/cron.d/unison_{job_name}', 'a')
       cf.write('# Added by unisonManager.py\n')
-      cf.write(f'{unison_crontab_default_schedule} root /usr/bin/unisonManager --exec {job_name}')
+      cf.write(f'{unison_crontab_default_schedule} root /usr/bin/unisonManager --exec {job_name}\n')
       cf.close()
     StatusMessages(message=message,status='success')  
   except Exception as err:
