@@ -2,6 +2,7 @@ import re
 import os
 import sys
 import subprocess as sb
+from xmlrpc.client import boolean
 from lib.load_settings import loadSettings
 
 def Execute(**kwargs):
@@ -20,7 +21,18 @@ def Execute(**kwargs):
       sys.exit(1)
     else:
       ''' profile file exists '''
-      print(f'/usr/bin/unison profiles/{job_name}/job.prf')
-      os.system(f'/usr/bin/unison profiles/{job_name}/job.prf')
-      print(f'info: job {job_name} started!')
-    
+      ps = ['ps', '-ef']
+      list_process = sb.run(ps, stdout=sb.PIPE, stderr=sb.PIPE, text=True)
+      if list_process.returncode != 0:
+        print(f'error: error executing command')
+        print(f'{str(list_process.stderr)}')
+        sys.exit(1)
+      else:
+        is_running = True in [ bool(re.search(f'/usr/bin/unison profiles/{job_name}/job.prf',x)) \
+          for x in list_process.stdout.split('\n') ]
+        if is_running:
+          print(f'info: Job {job_name} already is running!')
+        else:
+          print(f'/usr/bin/unison profiles/{job_name}/job.prf')
+          os.system(f'/usr/bin/unison profiles/{job_name}/job.prf')
+          print(f'info: job {job_name} started!')

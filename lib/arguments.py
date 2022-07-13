@@ -20,7 +20,6 @@ def arg_parser(fullpath):
   parser.add_argument('--exec',          help='Execute a Unison job',                    dest='exec_job'      )
   parser.add_argument('--remove',        help='Remove Unison job',                       dest='remove_job'    )
   args = vars(parser.parse_args())
-  
   ''' set arguments dependency '''
   add_jobs_dependency = [
     'job_name',
@@ -60,6 +59,3 @@ def arg_parser(fullpath):
         Execute(
           job_name=args['exec_job'],
           fullpath=fullpath)
-    
-  
-  
