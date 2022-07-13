@@ -1,31 +1,17 @@
 import os
 import sys
-import yaml
 import requests
 import tarfile
 from lib.status_messages import StatusMessages
+from lib.load_settings import loadSettings
 
 def InstallUnison(**kwargs):
-  confs = __loadConfig__(kwargs)
+  confs = loadSettings(kwargs)
   __downloadFile__(install_source=confs['install_source'])
   __checkIfUnisonIsInstalled__(install_destiny=confs['install_destiny'])
   __extractFiles__(install_destiny=confs['install_destiny'])
   __setSymbolicLink__(install_destiny=confs['install_destiny'])
-  
-def __loadConfig__(kwargs):
-  fullpath = kwargs['fullpath']
-  config_file = f'{fullpath}/conf/install.yaml'
-  if os.path.exists(config_file):
-    yaml_data = open(config_file, 'r').read()
-    data = yaml.safe_load(yaml_data)
-    return {
-      'install_destiny' : data['install_destiny'],
-      'install_source' : data['install_source']
-    }
-  else:
-    print(f'erro: {config_file} doesn\'t exists!')
-    sys.exit(1)
-  
+    
 def __downloadFile__(install_source):
   message='downloading Unison'
   StatusMessages(message=message)
