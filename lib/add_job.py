@@ -111,7 +111,15 @@ def __createUnisonProfile__(directory,remote_server,fullpath,job_name,unison_pro
 def __createScheduleAtCron__(job_name,unison_contrab_path,unison_crontab_default_schedule):
   try:
     message=f'creating Unison job schedule at crontab'
-    
+    if os.path.exists(f'{unison_contrab_path}/unison_{job_name}'):
+      StatusMessages(message=message,status='fail')    
+      print(f'error: file {job_name} already exists!')
+      sys.exit(1)
+    else:
+      cf = open(f'/etc/cron.d/unison_{job_name}', 'a')
+      cf.write('# Added by unisonManager.py\n')
+      cf.write(f'{unison_crontab_default_schedule} root /usr/bin/unisonManager --exec {job_name}')
+      cf.close()
     StatusMessages(message=message,status='success')  
   except Exception as err:
     StatusMessages(message=message,status='fail')
