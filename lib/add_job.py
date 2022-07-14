@@ -2,8 +2,9 @@ import os
 import re
 import sys
 import paramiko
-from lib.status_messages import StatusMessages
-from lib.load_settings import LoadSettings
+from lib.status_messages  import StatusMessages
+from lib.load_settings    import LoadSettings
+from lib.exec             import Execute
 
 def AddUnisonJob(**kwargs):
   # load settings
@@ -23,10 +24,12 @@ def AddUnisonJob(**kwargs):
     fullpath=kwargs['fullpath'],
     job_name=kwargs['args']['job_name'],
     unison_profile_directory=settings['unison_profile_directory'])
-  __createScheduleAtCron__(
-    job_name=kwargs['args']['job_name'],
-    unison_contrab_path=settings['unison_contrab_path'],
-    unison_crontab_default_schedule=settings['unison_crontab_default_schedule'])
+  #__createScheduleAtCron__(
+  #  job_name=kwargs['args']['job_name'],
+  #  unison_contrab_path=settings['unison_contrab_path'],
+  #  unison_crontab_default_schedule=settings['unison_crontab_default_schedule'])
+  ''' run the job '''
+  Execute(job_name=kwargs['args']['job_name'])
   
 def __checkConnectionWithRemoteServer__(remote_server):
   try:
@@ -125,3 +128,4 @@ def __createScheduleAtCron__(job_name,unison_contrab_path,unison_crontab_default
     StatusMessages(message=message,status='fail')
     print(f'error: {str(err)}')
     sys.exit(1)
+

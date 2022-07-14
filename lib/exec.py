@@ -1,9 +1,9 @@
 import re
 import os
 import sys
-import subprocess as sb
-from xmlrpc.client import boolean
-from lib.load_settings import LoadSettings
+import subprocess       as      sb
+from xmlrpc.client      import  boolean
+from lib.load_settings  import  LoadSettings
 
 def Execute(**kwargs):
   ''' load global settings '''

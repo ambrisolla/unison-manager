@@ -5,8 +5,9 @@
     - pyyaml
     - paramiko
     - requests
+    - tabulate
     
-  pip3 install pyyaml paramiko requests
+  pip3 install pyyaml paramiko requests tabulate
 '''
 
 import os

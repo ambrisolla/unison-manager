@@ -11,3 +11,4 @@ prefer=newer
 silent=true
 logfile=__LOG_FILE__
 times=true
+repeat=watch
