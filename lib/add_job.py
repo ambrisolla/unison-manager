@@ -29,7 +29,9 @@ def AddUnisonJob(**kwargs):
   #  unison_contrab_path=settings['unison_contrab_path'],
   #  unison_crontab_default_schedule=settings['unison_crontab_default_schedule'])
   ''' run the job '''
-  Execute(job_name=kwargs['args']['job_name'])
+  Execute(
+    job_name=kwargs['args']['job_name'],
+    fullpath=kwargs['fullpath'])
   
 def __checkConnectionWithRemoteServer__(remote_server):
   try:

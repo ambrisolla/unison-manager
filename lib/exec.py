@@ -33,6 +33,5 @@ def Execute(**kwargs):
         if is_running:
           print(f'info: Job {job_name} already is running!')
         else:
-          print(f'/usr/bin/unison profiles/{job_name}/job.prf')
-          os.system(f'/usr/bin/unison profiles/{job_name}/job.prf')
+          os.system(f'/usr/bin/unison profiles/{job_name}/job.prf &')
           print(f'info: job {job_name} started!')

@@ -12,3 +12,4 @@ silent=true
 logfile=__LOG_FILE__
 times=true
 repeat=watch
+maxerrors=100
