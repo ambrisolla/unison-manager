@@ -6,6 +6,7 @@ from lib.add_job        import AddUnisonJob
 from lib.job_manage     import Start, Stop
 from lib.load_settings  import LoadSettings
 from lib.list           import List
+from lib.remove         import Remove
 
 def arg_parser(fullpath):
   # load global settings
@@ -70,3 +71,8 @@ def arg_parser(fullpath):
           fullpath=fullpath)
       elif args['list']:
         List(fullpath=fullpath)
+      elif args['remove_job']:
+        Remove(
+          fullpath=fullpath,
+          job_name=args['remove_job'])
+        

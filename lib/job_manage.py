@@ -85,7 +85,7 @@ def __jobInfo__(**kwargs):
               print(f'error: {str(ps.stderr)}')
               sys.exit(1)
             else:
-              pid = ps.stdout
+              pid = ps.stdout.replace('\n','')
               return {
                 'job_status' : True,
                 'pid' : pid

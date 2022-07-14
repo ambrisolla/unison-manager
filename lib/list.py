@@ -8,12 +8,16 @@ from   lib.load_settings  import LoadSettings
 def List(fullpath):
   settings = LoadSettings(fullpath=fullpath)
   __getCreatedJobs__(unison_profile_directory=settings['unison_profile_directory'])
+  
     
 def __getCreatedJobs__(unison_profile_directory):
   try:
     profile_dirs = [ b for a,b,c in os.walk(f'{unison_profile_directory}')][0]
     profile_data = []
     data = {}
+    if len(profile_dirs) == 0:
+      print('No Unison job found!')
+      sys.exit(1)
     for job_name in profile_dirs:
       if not os.path.exists(f'{unison_profile_directory}/{job_name}/job.prf'):
         profile_data.append({
