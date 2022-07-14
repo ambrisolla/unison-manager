@@ -3,11 +3,11 @@ import re
 import sys
 import paramiko
 from lib.status_messages import StatusMessages
-from lib.load_settings import loadSettings
+from lib.load_settings import LoadSettings
 
 def AddUnisonJob(**kwargs):
   # load settings
-  settings = loadSettings(fullpath=kwargs['fullpath'])
+  settings = LoadSettings(fullpath=kwargs['fullpath'])
   # call functions
   __checkConnectionWithRemoteServer__(
     remote_server=kwargs['args']['remote_server'])

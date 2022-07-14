@@ -1,19 +1,20 @@
 import re
 import sys
 import argparse
-from lib.install    import InstallUnison
-from lib.add_job    import AddUnisonJob
-from lib.exec       import Execute
-from lib.load_settings  import loadSettings
+from lib.install        import InstallUnison
+from lib.add_job        import AddUnisonJob
+from lib.exec           import Execute
+from lib.load_settings  import LoadSettings
+from lib.list           import List
 
 def arg_parser(fullpath):
   # load global settings
-  global_settings = loadSettings(fullpath=fullpath)
+  global_settings = LoadSettings(fullpath=fullpath)
   parser = argparse.ArgumentParser(allow_abbrev=False)
   ''' create arguments '''
   parser.add_argument('--install',       help='Install Unison',                          action='store_true'  )
   parser.add_argument('--add-job',       help='Add a new Unison job',                    action='store_true'  )
-  parser.add_argument('--job-name',          help='Job name (used with --add-job)',          dest="job_name"      )
+  parser.add_argument('--job-name',      help='Job name (used with --add-job)',          dest="job_name"      )
   parser.add_argument('--remote-server', help='Remote server (used with --add-job)',     dest="remote_server" )
   parser.add_argument('--directory',     help='Directory to sync (used with --add-job)', dest='directory'     )
   parser.add_argument('--list',          help='List Unison jobs',                        action='store_true'  )
@@ -39,7 +40,7 @@ def arg_parser(fullpath):
     values_with_space = True in [ bool(re.search(' ',args[x])) for x in add_jobs_dependency ]
     if values_with_space:
       print('error: Values with spaces is not allowed!')
-    ''' values was validated! '''
+    ''' values was validated! Add Unison job'''
     AddUnisonJob(fullpath=fullpath,args=args)
   else:
     if args['job_name'] != None or args['directory'] != None or args['remote_server'] != None:
@@ -54,8 +55,12 @@ def arg_parser(fullpath):
     else:
       ''' install Unison on server '''
       if args['install']:
+        ''' Install Unison '''
         InstallUnison(fullpath=fullpath)
       elif args['exec_job']:
+        ''' Execute a Unison job '''
         Execute(
           job_name=args['exec_job'],
           fullpath=fullpath)
+      elif args['list']:
+        List(fullpath=fullpath)

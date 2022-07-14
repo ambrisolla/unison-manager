@@ -2,7 +2,7 @@ import os
 import yaml
 import sys
 
-def loadSettings(fullpath):
+def LoadSettings(fullpath):
   config_file = f'{fullpath}/conf/settings.yaml'
   if os.path.exists(config_file):
     yaml_data = open(config_file, 'r').read()

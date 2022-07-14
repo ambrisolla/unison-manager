@@ -3,11 +3,11 @@ import sys
 import requests
 import tarfile
 from lib.status_messages import StatusMessages
-from lib.load_settings import loadSettings
+from lib.load_settings import LoadSettings
 
 def InstallUnison(**kwargs):
   ''' load global settings '''
-  settings = loadSettings(fullpath=kwargs['fullpath'])
+  settings = LoadSettings(fullpath=kwargs['fullpath'])
   __downloadFile__(install_source=settings['install_source'])
   __checkIfUnisonIsInstalled__(install_destiny=settings['install_destiny'])
   __extractFiles__(install_destiny=settings['install_destiny'])

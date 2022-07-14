@@ -3,11 +3,11 @@ import os
 import sys
 import subprocess as sb
 from xmlrpc.client import boolean
-from lib.load_settings import loadSettings
+from lib.load_settings import LoadSettings
 
 def Execute(**kwargs):
   ''' load global settings '''
-  settings = loadSettings(fullpath=kwargs['fullpath'])
+  settings = LoadSettings(fullpath=kwargs['fullpath'])
   job_name = kwargs['job_name']
   ''' check if job_name has one or more " " character'''
   if re.search(' ', job_name) or job_name == '':
