@@ -1,16 +1,14 @@
 import re
 import os
 import sys
-import subprocess as sb
-from tabulate import tabulate
-
-
+import subprocess         as     sb
+from   tabulate           import tabulate
+from   lib.load_settings  import LoadSettings
 
 def List(fullpath):
   settings = LoadSettings(fullpath=fullpath)
   __getCreatedJobs__(unison_profile_directory=settings['unison_profile_directory'])
-  
-  
+    
 def __getCreatedJobs__(unison_profile_directory):
   try:
     profile_dirs = [ b for a,b,c in os.walk(f'{unison_profile_directory}')][0]
@@ -116,11 +114,3 @@ def __outputTable__(data):
     print(f'error: {str(err)}')
     sys.exit(1)
     
-    
-    
-# debug
-if __name__ == '__main__':
-  from load_settings import LoadSettings
-  __getJobCopyStatus__('a1','/root/.unison/profiles')
-else:
-  from lib.load_settings  import LoadSettings
