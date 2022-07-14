@@ -9,7 +9,6 @@
   pip3 install pyyaml paramiko requests
 '''
 
-
 import os
 from lib.arguments import arg_parser
 
