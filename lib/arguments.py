@@ -3,7 +3,7 @@ import sys
 import argparse
 from lib.install        import InstallUnison
 from lib.add_job        import AddUnisonJob
-from lib.exec           import Execute
+from lib.job_manage     import Start, Stop
 from lib.load_settings  import LoadSettings
 from lib.list           import List
 
@@ -18,7 +18,8 @@ def arg_parser(fullpath):
   parser.add_argument('--remote-server', help='Remote server (used with --add-job)',     dest="remote_server" )
   parser.add_argument('--directory',     help='Directory to sync (used with --add-job)', dest='directory'     )
   parser.add_argument('--list',          help='List Unison jobs',                        action='store_true'  )
-  parser.add_argument('--exec',          help='Execute a Unison job',                    dest='exec_job'      )
+  parser.add_argument('--start',         help='Start a Unison job',                      dest='start_job'     )
+  parser.add_argument('--stop',          help='Stop a Unison job',                       dest='stop_job'      )
   parser.add_argument('--remove',        help='Remove Unison job',                       dest='remove_job'    )
   args = vars(parser.parse_args())
   ''' set arguments dependency '''
@@ -57,10 +58,15 @@ def arg_parser(fullpath):
       if args['install']:
         ''' Install Unison '''
         InstallUnison(fullpath=fullpath)
-      elif args['exec_job']:
-        ''' Execute a Unison job '''
-        Execute(
-          job_name=args['exec_job'],
+      elif args['start_job']:
+        ''' Start a Unison job '''
+        Start(
+          job_name=args['start_job'],
+          fullpath=fullpath)
+      elif args['stop_job']:
+        ''' Stop a Unison job '''
+        Stop(
+          job_name=args['stop_job'],
           fullpath=fullpath)
       elif args['list']:
         List(fullpath=fullpath)

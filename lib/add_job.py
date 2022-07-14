@@ -4,7 +4,7 @@ import sys
 import paramiko
 from lib.status_messages  import StatusMessages
 from lib.load_settings    import LoadSettings
-from lib.exec             import Execute
+from lib.job_manage             import Start
 
 def AddUnisonJob(**kwargs):
   # load settings
@@ -29,7 +29,7 @@ def AddUnisonJob(**kwargs):
   #  unison_contrab_path=settings['unison_contrab_path'],
   #  unison_crontab_default_schedule=settings['unison_crontab_default_schedule'])
   ''' run the job '''
-  Execute(
+  Start(
     job_name=kwargs['args']['job_name'],
     fullpath=kwargs['fullpath'])
   
