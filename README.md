@@ -33,4 +33,4 @@ $ ln -s /opt/unisonManager/unisonManager.py /usr/bin/unisonManager
 ```
 
 # Options
-### `--install-unison`'
+### `--install-unison` :  This option will install <b>Unison</b>.
