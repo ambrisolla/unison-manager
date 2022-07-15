@@ -6,7 +6,7 @@
   <sub>Built by <a href="https://www.linkedin.com/in/brisolla/">Andre Muzel Brisolla</a>
 </div>
 
-## Contents
+# Contents
 - [About Unison](#Unison)
 - [Test environment](#Test-environment)
 - [Prerequisites](#Prerequisites)
