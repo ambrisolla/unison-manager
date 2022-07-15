@@ -70,8 +70,7 @@ $ unisonManager --install-unison
 ### `--add-job`
 Add a new Unison job. This option needs to be used with `--job-name`, `--remote-server`, and `--directory` options.
 ```bash
-$ unisonManager --add-job --job-name mysql_files \
-  --directory=/data/mysql_files \
+$ unisonManager --add-job --job-name mysql_files --directory=/data/mysql_files \
   --remote-server [REMOTE_SERVER_ADDRESS]
 ```
 By convention, use the same name to indentify <b>--job-name</b> and <b>--directory</b>.
