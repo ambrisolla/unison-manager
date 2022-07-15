@@ -108,7 +108,7 @@ $ unisonManager --stop [JOB_NAME]
 ```
 
 ### `--remove`
-Remove a Unison job. PS: This option only remove the Unison job profile.<p>
+Remove a Unison job. PS: This action only removes the Unison profile, it does not remove any data where the data is synced.<p>
 Example:
 ```bash
 $ unisonManager --remove [JOB_NAME]
