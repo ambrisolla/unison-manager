@@ -8,11 +8,11 @@
 The installation process is very simple. You just need to clone this repository and create a synmbolic link.
 
 Clone repo:
-```bash
+```shell
 $ git clone https://github.com/brisa-dev/unison-manager.git /opt/unisonManager
 ```
 
 Create a symbolic link:
-```bash
+```shell
 ln -s /opt/unisonManager/unisonManager.py /usr/bin/unisonManager
 ```
