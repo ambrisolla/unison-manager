@@ -17,7 +17,9 @@ To use <b>unisonManager</b> we need to solve some dependencies.
  - Python 3
  - PIP 3
  - PIP packages: paramiko, pyyaml, requests and tabulate
+ - SSH communication without password
 
+### Install Python 3
  Install Python 3 on Debian-based Linux:
  ```bash
   $ apt update && apt install python3 python3-pip -y
