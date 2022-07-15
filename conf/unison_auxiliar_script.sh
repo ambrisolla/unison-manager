@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This script is an auxiliar script to be used by main script 
+# This script is an auxiliar script to be used by the main script 
 # to execute some functions in a remote server
 #
 ###############################################################################
