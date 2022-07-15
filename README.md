@@ -19,7 +19,7 @@ To use <b>unisonManager</b> we need to solve some dependencies.
  - PIP packages: paramiko, pyyaml, requests and tabulate
  - SSH communication without password
 
-### Install Python 3
+### Install Python/PIP 3
  Install Python 3 on Debian-based Linux:
  ```bash
   $ apt update && apt install python3 python3-pip -y
@@ -28,10 +28,14 @@ To use <b>unisonManager</b> we need to solve some dependencies.
  ```bash
   $ yum install python39 python39-pip -y
  ```
+
+### Install PIP packages
 Install PIP packages:
 ```bash
 $ pip install paramiko pyyaml requests tabulate
 ```
+
+### Configure SSH to communicate without password between servers.
 The transfer process uses SSH for communication between servers. So we need to create an SSH key and copy it to remote server.<p>
 Create SSH key:
 ```bash
