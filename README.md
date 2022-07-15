@@ -19,7 +19,7 @@
 
 # Features
 - Run an automated installation of Unison
-- Manage Unison profiles
+- Manage Unison job profiles
 
 # Test environment
 <b>unisonManager</b> has been tested on the Operating System below:
@@ -84,7 +84,8 @@ $ unisonManager --install-unison
 ```
 
 ### `--add-job`
-Add a new Unison job. This option needs to be used with `--job-name`, `--remote-server`, and `--directory` options.
+Add a new Unison job. This option needs to be used with `--job-name`, `--remote-server`, and `--directory` options.<p>
+Example:
 ```bash
 $ unisonManager --add-job --job-name mysql_files --directory=/data/mysql_files \
   --remote-server [REMOTE_SERVER_ADDRESS]
