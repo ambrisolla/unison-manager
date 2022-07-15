@@ -9,7 +9,6 @@
   - Ubuntu 22.04
   - Debian 11
   - Centos 8
-  - Oracle Linux 7
   - Oracle Linux 8
 
 # Prerequisites
