@@ -12,6 +12,7 @@ def InstallUnison(**kwargs):
   __checkIfUnisonIsInstalled__(install_destiny=settings['install_destiny'])
   __extractFiles__(install_destiny=settings['install_destiny'])
   __setSymbolicLink__(install_destiny=settings['install_destiny'])
+  ## funcao para criar  /root/.unison/profiles
     
 def __downloadFile__(install_source):
   message='downloading Unison'
