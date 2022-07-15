@@ -6,21 +6,28 @@
 
 # Prerequisites
 To use <b>unisonManager</b> we need to solve some dependencies.
- - Python 3.9+
- - PIP 3.9+
+ - Python 3
+ - PIP 3
  - PIP packages: paramiko, pyyaml, requests and tabulate
 
- Install Python 3.9+:<p>
- Debian family
+ Install Python 3 on Debian-based Linux:
  ```bash
-  $ apt update && apt install python3.9 -y && ln -s /usr/bin/python3 /usr/bin/python
+  $ apt update && apt install python3 python3-pip -y
  ```
+ Install Python 3 on RedHat-based Linux:
+ ```bash
+  $ yum install python39 python39-pip -y
+ ```
+
+Install PIP packages:
+```bash
+$ pip install paramiko pyyaml requests tabulate
+```
 
 # Test environment
 <b>unisonManager</b> has been tested on the Operating System below:
   - Ubuntu 22.04
   - Debian 11
-  - Centos 7
   - Centos 8
   - Oracle Linux 7
   - Oracle Linux 8
