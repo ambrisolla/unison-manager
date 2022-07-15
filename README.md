@@ -53,7 +53,12 @@ Install Unison. The process of installation is very simple, basically it does:
   <li>extract files;</li>
   <li>create symbolic link;</li>
 </ol>
-Installation option can be changed in <b><i>conf/settings.yaml</i></b>
+Installation option can be changed in <b><i>conf/settings.yaml</i></b></p>
+Example:
+
+```bash
+$ unisonManager --install-unison
+```
 
 ### `--add-job`
 Add a new Unison job. This option needs to be used with `--job-name`, `--remote-server`, and `--directory` options.
