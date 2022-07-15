@@ -13,15 +13,15 @@ def arg_parser(fullpath):
   global_settings = LoadSettings(fullpath=fullpath)
   parser = argparse.ArgumentParser(allow_abbrev=False)
   ''' create arguments '''
-  parser.add_argument('--install',       help='Install Unison',                          action='store_true'  )
-  parser.add_argument('--add-job',       help='Add a new Unison job',                    action='store_true'  )
-  parser.add_argument('--job-name',      help='Job name (used with --add-job)',          dest="job_name"      )
-  parser.add_argument('--remote-server', help='Remote server (used with --add-job)',     dest="remote_server" )
-  parser.add_argument('--directory',     help='Directory to sync (used with --add-job)', dest='directory'     )
-  parser.add_argument('--list',          help='List Unison jobs',                        action='store_true'  )
-  parser.add_argument('--start',         help='Start a Unison job',                      dest='start_job'     )
-  parser.add_argument('--stop',          help='Stop a Unison job',                       dest='stop_job'      )
-  parser.add_argument('--remove',        help='Remove Unison job',                       dest='remove_job'    )
+  parser.add_argument('--install-unison', help='Install Unison',                          action='store_true'  )
+  parser.add_argument('--add-job',        help='Add a new Unison job',                    action='store_true'  )
+  parser.add_argument('--job-name',       help='Job name (used with --add-job)',          dest="job_name"      )
+  parser.add_argument('--remote-server',  help='Remote server (used with --add-job)',     dest="remote_server" )
+  parser.add_argument('--directory',      help='Directory to sync (used with --add-job)', dest='directory'     )
+  parser.add_argument('--list',           help='List Unison jobs',                        action='store_true'  )
+  parser.add_argument('--start',          help='Start a Unison job',                      dest='start_job'     )
+  parser.add_argument('--stop',           help='Stop a Unison job',                       dest='stop_job'      )
+  parser.add_argument('--remove',         help='Remove Unison job',                       dest='remove_job'    )
   args = vars(parser.parse_args())
   ''' set arguments dependency '''
   add_jobs_dependency = [
@@ -56,7 +56,7 @@ def arg_parser(fullpath):
       sys.exit(1)
     else:
       ''' install Unison on server '''
-      if args['install']:
+      if args['install_unison']:
         ''' Install Unison '''
         InstallUnison(fullpath=fullpath)
       elif args['start_job']:

@@ -12,7 +12,7 @@ def InstallUnison(**kwargs):
   __checkIfUnisonIsInstalled__(install_destiny=settings['install_destiny'])
   __extractFiles__(install_destiny=settings['install_destiny'])
   __setSymbolicLink__(install_destiny=settings['install_destiny'])
-  ## funcao para criar  /root/.unison/profiles
+  __createProfileDir__(unison_profile_directory=settings['unison_profile_directory'])
     
 def __downloadFile__(install_source):
   message='downloading Unison'
@@ -63,6 +63,17 @@ def __setSymbolicLink__(install_destiny):
   StatusMessages(message=message)
   try:
     os.symlink(f'{install_destiny}/bin/unison', '/usr/bin/unison')
+    StatusMessages(message=message,status='success')
+  except Exception as err:
+    StatusMessages(message=message,status='fail')
+    print(f'erro: {str(err)}')
+    sys.exit(1)
+    
+def __createProfileDir__(unison_profile_directory):
+  message='creating profile directory'
+  StatusMessages(message=message)
+  try:
+    os.makedirs(unison_profile_directory)
     StatusMessages(message=message,status='success')
   except Exception as err:
     StatusMessages(message=message,status='fail')
