@@ -8,6 +8,7 @@
 
 # Contents
 - [About Unison](#Unison)
+- [Features](#Features)
 - [Test environment](#Test-environment)
 - [Prerequisites](#Prerequisites)
 - [Install](#Install)
@@ -15,6 +16,10 @@
 
 # Unison
 <a href='https://github.com/bcpierce00/unison' target='_blank'>Unison</a> is a file-syncronization tool. If you need a solution to keep your data up-to-date between two servers, <b>Unison</b> is a great choice.
+
+# Features
+- Run an automated installation of Unison
+- Manage Unison profiles
 
 # Test environment
 <b>unisonManager</b> has been tested on the Operating System below:
