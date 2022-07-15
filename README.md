@@ -21,7 +21,7 @@ To use <b>unisonManager</b> we need to solve some dependencies.
 
 
 # Install
-The installation process is very simple. You just need to clone this repository and create a synmbolic link.
+The installation process is very simple. You just need to clone this repository and create a symbolic link.
 
 Clone repo:
 ```shell
