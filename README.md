@@ -30,7 +30,7 @@ To use <b>unisonManager</b> we need to solve some dependencies.
  ```
 
 ### Install PIP packages
-Install PIP packages:
+
 ```bash
 $ pip install paramiko pyyaml requests tabulate
 ```
