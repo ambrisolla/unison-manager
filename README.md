@@ -19,7 +19,6 @@ To use <b>unisonManager</b> we need to solve some dependencies.
   - Oracle Linux 7
   - Oracle Linux 8
 
-
 # Install
 The installation process is very simple. You just need to clone this repository and create a symbolic link.
 
@@ -32,3 +31,6 @@ Create a symbolic link:
 ```shell
 $ ln -s /opt/unisonManager/unisonManager.py /usr/bin/unisonManager
 ```
+
+# Options
+### `--install-unison`'
