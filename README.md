@@ -33,4 +33,6 @@ $ ln -s /opt/unisonManager/unisonManager.py /usr/bin/unisonManager
 ```
 
 # Options
-### `--install-unison` :  This option will install <b>Unison</b>.
+### `--install-unison`
+This option will install Unison. The process of installation is very simple, basically it does:
+  - download Unison package (you can change the package version in <b><i>conf/settings.yaml</i></b>);
