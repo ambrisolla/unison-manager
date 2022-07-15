@@ -84,4 +84,33 @@ Specify a job name when creating a new Unison job.
 Specify a directory when creating a new Unison job.
 
 ### `--remote-server` (to be used with --add-job)
-Specify a remoet server when creating a new Unison job.
+Specify a remote server when creating a new Unison job.
+
+### `--list`
+List status of created jobs.<p>
+Example:
+```bash
+$ unisonManager --list
+```
+
+### `--start`
+Start a Unison job.<p>
+Example:
+```bash
+$ unisonManager --start [JOB_NAME]
+```
+
+### `--stop`
+Stop a Unison job.<p>
+Example:
+```bash
+$ unisonManager --stop [JOB_NAME]
+```
+
+### `--remove`
+Remove a Unison job. PS: This option only remove the Unison job profile.<p>
+Example:
+```bash
+$ unisonManager --remove [JOB_NAME]
+```
+
