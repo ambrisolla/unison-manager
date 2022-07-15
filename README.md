@@ -26,10 +26,18 @@ To use <b>unisonManager</b> we need to solve some dependencies.
  ```bash
   $ yum install python39 python39-pip -y
  ```
-
 Install PIP packages:
 ```bash
 $ pip install paramiko pyyaml requests tabulate
+```
+The transfer process uses SSH for communication between servers. So we need to create an SSH key and copy it to remote server.<p>
+Create SSH key:
+```bash
+$ ssh-keygen -t rsa # do not put password
+```
+Copy the SSH key to the remote server:
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa root@[REMOTE_SERVER_ADDRESS]
 ```
 
 # Install
@@ -58,6 +66,8 @@ Add a new Unison job. This option needs to be used with `--job-name`, `--remote-
 ```bash
 $ unisonManager --add-job --job-name mysql_files \
   --directory=/data/mysql_files \
-  --remote-server 192.168.0.203
+  --remote-server [REMOTE_SERVER_ADDRESS]
 ```
 By convention, use the same name to indentify <b>--job-name</b> and <b>--directory</b>.
+
+When process has been finished, all sctructure necessary to syncronize the data will be created in local and remote server.
