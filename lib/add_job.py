@@ -8,7 +8,7 @@ from lib.job_manage      import Start
 
 def AddUnisonJob(**kwargs):
   # load settings
-  settings = LoadSettings(fullpath=kwargs['fullpath'])
+  settings = LoadSettings()
   # call functions
   __checkConnectionWithRemoteServer__(
     remote_server=kwargs['args']['remote_server'])

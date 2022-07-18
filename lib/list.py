@@ -6,7 +6,7 @@ from   tabulate           import tabulate
 from   lib.load_settings  import LoadSettings
 
 def List(fullpath):
-  settings = LoadSettings(fullpath=fullpath)
+  settings = LoadSettings()
   __getCreatedJobs__(unison_profile_directory=settings['unison_profile_directory'])
   
     

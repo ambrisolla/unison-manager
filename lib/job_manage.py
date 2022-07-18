@@ -22,9 +22,9 @@ def Start(**kwargs):
         print(f'error: {str(err)}')
         sys.exit(1)
     else:
-      StatusMessages(message=message, status='fail')
-      print(f'error: Job {job_name} is already running!')
-      sys.exit(1)
+      StatusMessages(message=message, status='warning')
+      print(f'info: Job {job_name} is already running!')
+      sys.exit(0)
   except Exception as err:
     StatusMessages(message=message, status='fail')
     print(f'erro: {str(err)}')
@@ -41,9 +41,9 @@ def Stop(**kwargs):
       os.kill(pid, signal.SIGKILL)
       StatusMessages(message=message, status='success')  
     else:
-      StatusMessages(message=message, status='fail')
-      print('error: Job is not running!')
-      sys.exit(1)
+      StatusMessages(message=message, status='warning')
+      print('info: Job is not running!')
+      sys.exit(0)
   except Exception as err:
     StatusMessages(message=message, status='fail')
     print(f'erro: {str(err)}')
@@ -52,7 +52,7 @@ def Stop(**kwargs):
 def __jobInfo__(**kwargs):
   try:
     ''' load global settings '''
-    settings = LoadSettings(fullpath=kwargs['fullpath'])
+    settings = LoadSettings()
     job_name = kwargs['job_name']
     ''' check if job_name has one or more " " character'''
     if re.search(' ', job_name) or job_name == '':

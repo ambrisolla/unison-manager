@@ -40,7 +40,7 @@ def __removeProfile__(kwargs):
   message = f'removing Unison {job_name} profile'
   StatusMessages(message=message)
   try:
-    settings = LoadSettings(fullpath=kwargs['fullpath'])
+    settings = LoadSettings()
     unison_profile_directory = settings['unison_profile_directory']
     profile_path = f'{unison_profile_directory}/{job_name}'
     if os.path.exists(profile_path):

@@ -7,7 +7,7 @@ from lib.load_settings   import LoadSettings
 
 def InstallUnison(**kwargs):
   ''' load global settings '''
-  settings = LoadSettings(fullpath=kwargs['fullpath'])
+  settings = LoadSettings()
   __downloadFile__(install_source=settings['install_source'])
   __checkIfUnisonIsInstalled__(install_destiny=settings['install_destiny'])
   __extractFiles__(install_destiny=settings['install_destiny'])
