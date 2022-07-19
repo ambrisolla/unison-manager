@@ -5,10 +5,9 @@ import subprocess         as     sb
 from   tabulate           import tabulate
 from   lib.load_settings  import LoadSettings
 
-def List(fullpath):
+def List():
   settings = LoadSettings()
   __getCreatedJobs__(unison_profile_directory=settings['unison_profile_directory'])
-  
     
 def __getCreatedJobs__(unison_profile_directory):
   try:
@@ -65,6 +64,9 @@ def __getJobCopyStatus__(job_name,unison_profile_directory):
           break
         elif re.search('Fatal error', line):
           copy_status = line
+          break
+        elif re.search('Unison', line) and  re.search('log started at', line):
+          copy_status = 'no copies'
           break
         ''' get copy percent if copy_status == 1 '''
       if copy_status == 1:

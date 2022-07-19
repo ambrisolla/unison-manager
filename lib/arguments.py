@@ -9,9 +9,9 @@ from lib.list           import List
 from lib.remove         import Remove
 from lib.cleanup         import CleanUp
 
-def arg_parser(fullpath):
+def arg_parser():
   # load global settings
-  global_settings = LoadSettings()
+  settings = LoadSettings()
   parser = argparse.ArgumentParser(allow_abbrev=False)
   ''' create arguments '''
   parser.add_argument('--install-unison', help='Install Unison',                                action='store_true'  )
@@ -45,7 +45,7 @@ def arg_parser(fullpath):
     if values_with_space:
       print('error: Values with spaces is not allowed!')
     ''' values was validated! Add Unison job'''
-    AddUnisonJob(fullpath=fullpath,args=args)
+    AddUnisonJob(args=args)
   else:
     if args['job_name'] != None or args['directory'] != None or args['remote_server'] != None:
       ''' check if arguments to be used with --add-job was passed ''' 
@@ -60,25 +60,19 @@ def arg_parser(fullpath):
       ''' install Unison on server '''
       if args['install_unison']:
         ''' Install Unison '''
-        InstallUnison(fullpath=fullpath)
+        InstallUnison()
       elif args['start_job']:
         ''' Start a Unison job '''
         Start(
-          job_name=args['start_job'],
-          fullpath=fullpath)
+          job_name=args['start_job'])
       elif args['stop_job']:
         ''' Stop a Unison job '''
         Stop(
-          job_name=args['stop_job'],
-          fullpath=fullpath)
+          job_name=args['stop_job'])
       elif args['list']:
-        List(fullpath=fullpath)
+        List()
       elif args['remove_job']:
-        Remove(
-          fullpath=fullpath,
-          job_name=args['remove_job'])
+        Remove(job_name=args['remove_job'])
       elif args['cleanup_job']:
-        CleanUp(
-          fullpath=fullpath,
-          job_name=args['cleanup_job'])
+        CleanUp(job_name=args['cleanup_job'])
         

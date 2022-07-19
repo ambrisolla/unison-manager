@@ -8,7 +8,7 @@ def LoadSettings():
   if os.path.exists(config_file):
     yaml_data = open(config_file, 'r').read()
     data = yaml.safe_load(yaml_data)
-    data['fullpath'] = fullpath
+    data['fullpath'] = '/'.join(fullpath.split('/')[0:-1])
     return data
   else:
     print(f'erro: {config_file} doesn\'t exists!')

@@ -9,7 +9,7 @@ from lib.status_messages  import  StatusMessages
 def Start(**kwargs):
   try:
     job_name = kwargs['job_name']
-    job_info = __jobInfo__(fullpath=kwargs['fullpath'],job_name=job_name)
+    job_info = __jobInfo__(job_name=job_name)
     running = job_info['job_status']
     message = f'starting Unison job [{job_name}]'
     if not running:    
@@ -33,7 +33,7 @@ def Start(**kwargs):
 def Stop(**kwargs):
   try:
     job_name = kwargs['job_name']
-    job_info = __jobInfo__(fullpath=kwargs['fullpath'],job_name=job_name)
+    job_info = __jobInfo__(job_name=job_name)
     running = job_info['job_status']
     message = f'stopping Unison job [{job_name}]'
     if running:

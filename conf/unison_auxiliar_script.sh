@@ -23,6 +23,23 @@ create_directory() {
   fi
 }
 
+remove_unison_tmp_files() {
+  # removes *.unison.tmp files
+  DIRECTORY=$1
+  if [ -d ${DIRECTORY} ]
+  then
+    find ${DIRECTORY} -name ".*.unison.tmp" -type f -delete
+    if [ $? -eq 0 ]
+    then
+      exit 0
+    else
+      exit 1
+    fi
+  else
+    exit 2
+  fi
+}
+
 show_help() {
   echo -ne "--create-directory DIR\tCreates a directory to be synced"
 }
@@ -30,6 +47,9 @@ show_help() {
 case $1 in
   --create-directory)
     create_directory $2
+    ;;
+  --remove-temp-files)
+    remove_unison_tmp_files $2
     ;;
   *)
     show_help

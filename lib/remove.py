@@ -15,7 +15,6 @@ def Remove(**kwargs):
     sys.exit(1)
   ''' get job status'''  
   job_info = __jobInfo__(
-    fullpath=kwargs['fullpath'],
     job_name=job_name)
   if job_info['job_status']:
     ''' kill process '''

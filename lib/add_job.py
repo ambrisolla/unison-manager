@@ -9,6 +9,7 @@ from lib.job_manage      import Start
 def AddUnisonJob(**kwargs):
   # load settings
   settings = LoadSettings()
+  fullpath = settings['fullpath']
   # call functions
   __checkConnectionWithRemoteServer__(
     remote_server=kwargs['args']['remote_server'])
@@ -17,11 +18,11 @@ def AddUnisonJob(**kwargs):
   __createRemoteDirectory__(
     directory=kwargs['args']['directory'],
     remote_server=kwargs['args']['remote_server'],
-    fullpath=kwargs['fullpath'])
+    fullpath=fullpath)
   __createUnisonProfile__(
     directory=kwargs['args']['directory'],
     remote_server=kwargs['args']['remote_server'],
-    fullpath=kwargs['fullpath'],
+    fullpath=fullpath,
     job_name=kwargs['args']['job_name'],
     unison_profile_directory=settings['unison_profile_directory'])
   #__createScheduleAtCron__(
@@ -31,7 +32,7 @@ def AddUnisonJob(**kwargs):
   ''' run the job '''
   Start(
     job_name=kwargs['args']['job_name'],
-    fullpath=kwargs['fullpath'])
+    fullpath=fullpath)
   
 def __checkConnectionWithRemoteServer__(remote_server):
   try:
