@@ -7,8 +7,9 @@ from   lib.load_settings  import LoadSettings
 
 def List():
   settings = LoadSettings()
-  __getCreatedJobs__(unison_profile_directory=settings['unison_profile_directory'])
-    
+  data = __getCreatedJobs__(unison_profile_directory=settings['unison_profile_directory'])
+  __outputTable__(data)
+
 def __getCreatedJobs__(unison_profile_directory):
   try:
     profile_dirs = [ b for a,b,c in os.walk(f'{unison_profile_directory}')][0]
@@ -21,9 +22,11 @@ def __getCreatedJobs__(unison_profile_directory):
       if not os.path.exists(f'{unison_profile_directory}/{job_name}/job.prf'):
         profile_data.append({
           'job_name' : job_name,
+          'profile_status' : False,
           'local_directory' : '---',
           'remote_directory' : '---',
-          'copy_status' : '---'
+          'copy_status' : '---',
+          'job_status' : '---'
         })
       else:
         pf = open(f'{unison_profile_directory}/{job_name}/job.prf', 'r').read().split('\n')
@@ -34,13 +37,14 @@ def __getCreatedJobs__(unison_profile_directory):
             remote_directory = line.split('=')[-1].replace(' ','')
         profile_data.append({
           'job_name' : job_name,
+          'profile_status' : True,
           'local_directory' : local_directory,
           'remote_directory' : remote_directory,
           'copy_status' : __getJobCopyStatus__(job_name,unison_profile_directory),
           'job_status' : __getJobStatus__(job_name)
+          
         })
-    __outputTable__(profile_data)
-    ## PAROU AQUI. FALTA COLETAR INFORMACOES DOS LOGS DAS TRANSFERENCIAS PARA INCLUIR NA LISTA
+    return profile_data
   except Exception as err:
     print(f'error: {str(err)}')
     sys.exit(1)

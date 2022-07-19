@@ -6,6 +6,19 @@ import paramiko
 from lib.load_settings    import LoadSettings
 from lib.status_messages  import StatusMessages
 from lib.job_manage       import Start, Stop
+from lib.list             import __getCreatedJobs__
+
+def CleanUpAll(**kwargs):
+  try:
+    settings = LoadSettings()
+    profile_data = __getCreatedJobs__(unison_profile_directory=settings['unison_profile_directory'])
+    for data in profile_data:
+      if data['profile_status']:
+        job_name = data['job_name']
+        CleanUp(job_name=job_name)
+  except Exception as err:
+    print(f'error: {str(err)}')
+    sys.exit(1)
 
 def CleanUp(**kwargs):
   try:
@@ -47,7 +60,7 @@ def __findAndRemoveLocalTmpFiles(directory):
   except Exception as err:
     StatusMessages(message=message, status='fail')
     print(f'error: {str(err)}')
-    sys.exit(1)
+    ##sys.exit(1)
     
 def __findAndRemoveRemoteTmpFiles(remote):
   message = 'removing remote unison.tmp files'
@@ -73,13 +86,13 @@ def __findAndRemoveRemoteTmpFiles(remote):
     elif retcode == 2:
       StatusMessages(message=message, status='fail')
       print(f'error: Directory {remote_directory} does not exists!')
-      sys.exit(1)
+      ## sys.exit(1)
     elif retcode == 1:
       StatusMessages(message=message, status='fail')
       print(f'error: {stderr}')
-      sys.exit(1)
+      ## sys.exit(1)
   except Exception as err:
     StatusMessages(message=message, status='fail')
     print(f'error: {str(err)}')
-    sys.exit(1)
+    ##sys.exit(1)
   
