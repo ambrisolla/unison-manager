@@ -94,13 +94,13 @@ By convention, use the same name to indentify <b>--job-name</b> and <b>--directo
 
 When process has been finished, all sctructure necessary to syncronize the data will be created in local and remote server.
 
-### `--job-name` (to be used with --add-job)
+### `--job-name [JOB_NAME]` (to be used with --add-job)
 Specify a job name when creating a new Unison job.
 
-### `--directory` (to be used with --add-job)
+### `--directory [DIRECTORY]` (to be used with --add-job)
 Specify a directory when creating a new Unison job.
 
-### `--remote-server` (to be used with --add-job)
+### `--remote-server [REMOTE_SERVER]` (to be used with --add-job)
 Specify a remote server when creating a new Unison job.
 
 ### `--list`
@@ -110,14 +110,14 @@ Example:
 $ unisonManager --list
 ```
 
-### `--start`
+### `--start [JOB_NAME]`
 Start a Unison job.<p>
 Example:
 ```bash
 $ unisonManager --start [JOB_NAME]
 ```
 
-### `--stop`
+### `--stop [JOB_NAME]`
 Stop a Unison job.<p>
 Example:
 ```bash
@@ -131,3 +131,16 @@ Example:
 $ unisonManager --remove [JOB_NAME]
 ```
 
+### `--cleanup  [JOB_NAME]`
+This action stops the job process, removes all .unison.tmp and starts job process.
+Example:
+```bash
+$ unisonManager --cleanup [JOB_NAME]
+```
+
+### `--cleanup-all`
+This action executes the same of '--cleanup' option, but in all jobs.
+Example:
+```bash
+$ unisonManager --cleanup-all
+```
