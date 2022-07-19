@@ -132,14 +132,14 @@ $ unisonManager --remove [JOB_NAME]
 ```
 
 ### `--cleanup  [JOB_NAME]`
-This action stops the job process, removes all .unison.tmp and starts job process.
+This action stops the job process, removes all .unison.tmp and starts job process.<p>
 Example:
 ```bash
 $ unisonManager --cleanup [JOB_NAME]
 ```
 
 ### `--cleanup-all`
-This action executes the same of '--cleanup' option, but in all jobs.
+This action executes the same of '--cleanup' option, but in all jobs.<p>
 Example:
 ```bash
 $ unisonManager --cleanup-all
