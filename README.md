@@ -19,13 +19,13 @@
 
 # Features
 - Run an automated installation of Unison
-- Manage Unison job profiles
+- Manage Unison job process profiles
 
 # Test environment
 <b>unisonManager</b> has been tested on the Operating System below:
   - Ubuntu 22.04
   - Debian 11
-  - Centos 8
+  - Rocky Linux 8
   - Oracle Linux 8
 
 # Prerequisites
@@ -48,7 +48,7 @@ To use <b>unisonManager</b> we need to solve some dependencies.
 ### Install PIP packages
 
 ```bash
-$ pip install paramiko pyyaml requests tabulate
+$ pip3 install paramiko pyyaml requests tabulate
 ```
 
 ### Configure SSH to communicate without password between servers.
@@ -72,7 +72,7 @@ $ git clone https://github.com/brisa-dev/unison-manager.git /opt/unisonManager
 
 Create a symbolic link:
 ```shell
-$ ln -s /opt/unisonManager/unisonManager.py /usr/bin/unisonManager
+$ ln -s /opt/unisonManager/unisonManager.py /usr/bin/local/unisonManager
 ```
 
 # Options
