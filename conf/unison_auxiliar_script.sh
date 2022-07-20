@@ -41,8 +41,10 @@ remove_unison_tmp_files() {
 }
 
 show_help() {
-  echo -ne "--create-directory DIR\tCreates a directory to be synced"
-  echo -ne "--remove-temp-files DIR\tRemoves all unison.tmp files"
+  echo -e "Usage: ${0} [OPTION]"
+  echo -e "This script is used by unisonManager to execute actions on remote server\n"
+  echo -e "--create-directory  DIR\tCreates a directory to be synced"
+  echo -e "--remove-temp-files DIR\tRemoves all unison.tmp files\n"
 }
 
 case $1 in
