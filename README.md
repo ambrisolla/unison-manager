@@ -144,3 +144,10 @@ Example:
 ```bash
 $ unisonManager --cleanup-all
 ```
+
+### `--exporter`
+Exports a web data vizualization.
+Example:
+```bash
+$ unisonManager --exporter
+```
