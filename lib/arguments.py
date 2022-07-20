@@ -8,6 +8,7 @@ from lib.load_settings  import LoadSettings
 from lib.list           import List
 from lib.remove         import Remove
 from lib.cleanup        import CleanUp, CleanUpAll
+from lib.exporter       import StartApp
 
 def arg_parser():
   # load global settings
@@ -25,6 +26,7 @@ def arg_parser():
   parser.add_argument('--remove',         help='Remove Unison job',                             dest='remove_job'    )
   parser.add_argument('--cleanup',        help='Cleanup temporary files from a specific job',   dest='cleanup_job'   )
   parser.add_argument('--cleanup-all',    help='Cleanup temporary files from all jobs',         action='store_true'  )
+  parser.add_argument('--exporter',       help='Export process status'                ,         action='store_true'  )
   args = vars(parser.parse_args())
   ''' set arguments dependency '''
   add_jobs_dependency = [
@@ -78,4 +80,6 @@ def arg_parser():
         CleanUp(job_name=args['cleanup_job'])
       elif args['cleanup_all']:
         CleanUpAll(job_name=args['cleanup_job'])
+      elif args['exporter']:
+        StartApp()
         

@@ -8,3 +8,5 @@ unison_profile_directory: /root/.unison/profiles
 # Crontab settings
 unison_crontab_default_schedule: '* * * * *'
 unison_contrab_path: /etc/cron.d
+# Exporter settings
+exporter_port: 9091
