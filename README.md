@@ -72,7 +72,7 @@ $ git clone https://github.com/brisa-dev/unison-manager.git /opt/unisonManager
 
 Create a symbolic link:
 ```shell
-$ ln -s /opt/unisonManager/unisonManager.py /usr/bin/local/unisonManager
+$ ln -s /opt/unisonManager/unisonManager.py /usr/local/bin/unisonManager
 ```
 
 # Options

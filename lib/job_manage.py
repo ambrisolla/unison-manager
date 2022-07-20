@@ -15,7 +15,7 @@ def Start(**kwargs):
     if not running:    
       StatusMessages(message=message)
       try:
-        os.system(f'/usr/bin/unison profiles/{job_name}/job.prf > /dev/null 2> /dev/null &')
+        os.system(f'/usr/local/bin/unison profiles/{job_name}/job.prf > /dev/null 2> /dev/null &')
         StatusMessages(message=message, status='success')
       except Exception as err:
         StatusMessages(message=message, status='fail')
@@ -74,7 +74,7 @@ def __jobInfo__(**kwargs):
           sys.exit(1)
         else:
           '''return data ''' 
-          full_process_name = f'/usr/bin/unison profiles/{job_name}/job.prf'
+          full_process_name = f'/usr/local/bin/unison profiles/{job_name}/job.prf'
           is_running = True in [ bool(re.search(full_process_name,x)) \
             for x in list_process.stdout.split('\n') ]
           if is_running:

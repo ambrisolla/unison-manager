@@ -101,7 +101,7 @@ def __getJobStatus__(job_name):
     else:
       job_status='stopped'
       for line in ps.stdout.split('\n'):
-        if re.search(f'/usr/bin/unison profiles/{job_name}/job.prf', line):
+        if re.search(f'/usr/local/bin/unison profiles/{job_name}/job.prf', line):
           job_status =  'running'          
       return job_status
   except Exception as err:

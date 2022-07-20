@@ -62,7 +62,7 @@ def __setSymbolicLink__(install_destiny):
   message='creating symbolic links'
   StatusMessages(message=message)
   try:
-    os.symlink(f'{install_destiny}/bin/unison', '/usr/bin/unison')
+    os.symlink(f'{install_destiny}/bin/unison', '/usr/local/bin/unison')
     StatusMessages(message=message,status='success')
   except Exception as err:
     StatusMessages(message=message,status='fail')
