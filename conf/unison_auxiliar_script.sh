@@ -42,6 +42,7 @@ remove_unison_tmp_files() {
 
 show_help() {
   echo -ne "--create-directory DIR\tCreates a directory to be synced"
+  echo -ne "--remove-temp-files DIR\tRemoves all unison.tmp files"
 }
 
 case $1 in
