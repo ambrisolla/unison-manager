@@ -146,7 +146,7 @@ $ unisonManager --cleanup-all
 ```
 
 ### `--exporter`
-Exports a web data vizualization.
+Exports a web data vizualization.<p>
 Example:
 ```bash
 $ unisonManager --exporter
