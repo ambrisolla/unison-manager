@@ -92,7 +92,7 @@ $ unisonManager --add-job --job-name mysql_files --directory=/data/mysql_files \
 ```
 By convention, use the same name to indentify <b>--job-name</b> and <b>--directory</b>.
 
-When process has been finished, all sctructure necessary to syncronize the data will be created in local and remote server.
+When process has been finished, all structure necessary to syncronize the data will be created in local and remote server.
 
 ### `--job-name [JOB_NAME]` (to be used with --add-job)
 Specify a job name when creating a new Unison job.
