@@ -66,7 +66,7 @@ ssh-copy-id -i ~/.ssh/id_rsa root@[REMOTE_SERVER_ADDRESS]
 # Install
 The installation process is very simple. You just need to clone this repository and create a symbolic link.
 
-<p style='color:#eb3636'>PS: The install process needs to be executed on all servers!</p>
+PS: The Unison needs to be installed on all servers!
 
 Clone repo:
 ```shell
