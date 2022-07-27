@@ -24,7 +24,7 @@ def Start(**kwargs):
     else:
       StatusMessages(message=message, status='warning')
       print(f'info: Job {job_name} is already running!')
-      sys.exit(0)
+      #sys.exit(0)
   except Exception as err:
     StatusMessages(message=message, status='fail')
     print(f'erro: {str(err)}')
@@ -43,7 +43,7 @@ def Stop(**kwargs):
     else:
       StatusMessages(message=message, status='warning')
       print('info: Job is not running!')
-      sys.exit(0)
+      #sys.exit(0)
   except Exception as err:
     StatusMessages(message=message, status='fail')
     print(f'erro: {str(err)}')
