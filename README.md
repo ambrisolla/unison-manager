@@ -156,5 +156,5 @@ $ unisonManager --exporter
 ```
 
 # Architecture
-Simple example of an Unison Architecture:
+Simple example of a Unison Architecture:
 <img src="conf/unisonManager.png">
