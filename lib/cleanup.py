@@ -2,6 +2,7 @@ import re
 import os
 import glob
 import sys
+import shutil
 import paramiko
 from lib.load_settings    import LoadSettings
 from lib.status_messages  import StatusMessages
@@ -55,7 +56,7 @@ def __findAndRemoveLocalTmpFiles(directory):
       if os.path.isfile(file):
         os.remove(file)
       elif os.path.isdir(file):
-        os.removedirs(file)
+        shutil.rmtree(file)
     StatusMessages(message=message, status='success')
   except Exception as err:
     StatusMessages(message=message, status='fail')
